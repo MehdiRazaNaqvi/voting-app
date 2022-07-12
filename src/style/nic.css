@@ -1,0 +1,30 @@
+.backscreen{
+    width: 100vw;
+    height: 100vh;
+    /* background-color: green; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.btn_goto , .form-control{
+    width: 50%;
+    margin: 2%;
+    font-size: x-small;
+}
+
+
+@media screen and (max-width: 350px) {
+    
+     .form-control{
+        font-size: 40%;
+    }
+
+    .btn_goto {
+        font-size: 35%;
+    }
+
+    }
