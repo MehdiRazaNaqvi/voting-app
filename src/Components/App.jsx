@@ -37,6 +37,8 @@ const App = () => {
 
 
     fetch("https://voting---server.herokuapp.com/getdata", {
+    // fetch("http://localhost:4000/getdata", {
+
       method: "get",
       headers: headers
     })
@@ -57,37 +59,33 @@ const App = () => {
     console.log(v)
     //  v.nic == "" ? console.log("error") : console.log("okay")
 
-    if (v.nic == "" || v.nic == undefined) {
-      alert("Invalid cnic number")
+
+
+
+
+    const headers = {
+      'Content-Type': 'application/json;charset=UTF-8',
+      "Access-Control-Allow-Origin": "*",
+      'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': '*'
     }
-    else {
 
 
 
-      const headers = {
-        'Content-Type': 'application/json;charset=UTF-8',
-        "Access-Control-Allow-Origin": "*",
-        'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': '*'
-      }
+    fetch("https://voting---server.herokuapp.com/vote", {
+    // fetch("http://localhost:4000/vote", {
 
 
+      method: "post",
+      headers: headers,
+      body: JSON.stringify(v)
+    })
 
-      fetch("https://voting---server.herokuapp.com/vote", {
-      // fetch("http://localhost:4000/vote", {
-
-
-        method: "post",
-        headers: headers,
-        body: JSON.stringify(v)
-      })
-
-      alert(`Vote casted to ${v.party}`)
+    alert(`Vote casted to ${v.party}`)
 
 
 
 
-    }
   }
 
 
@@ -118,6 +116,7 @@ const App = () => {
             <span className='item' key={i}>
 
               <span className='inner_item one'>
+
                 <img src={v.logo} className="pic" />
 
               </span>
@@ -125,7 +124,7 @@ const App = () => {
 
               <span className='inner_item two'> {v.name} </span>
               <span className='inner_item three'> {v.count.length} </span>
-              <span className='inner_item four btn btn-outline-success' onClick={() => { voted({ party: v.name, nic: count.current_user }); load_data(); navigate("/voting-app") }} > vote </span>
+              <span className='inner_item four btn btn-outline-success' onClick={() => { voted({ party: v.name, nic: count.current_user }); load_data() }} > vote </span>
 
             </span>
 

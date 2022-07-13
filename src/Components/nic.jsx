@@ -7,17 +7,34 @@ import '../style/nic.css'
 
 const App = () => {
 
+
+
     const [nic, setnic] = useState()
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
+    
+
+    const checking = () => {
+
+        if (nic == "" || nic == undefined || nic.length < 13) {
+            alert("Invalid cnic number")
+        }
+        else {
+            
+            dispatch(current_nic(nic))
+            navigate("/voting-app/vote")
+        }
+    }
+
+
     return (
         <div className="backscreen">
 
-            <input className="form-control" onChange={(e) => setnic(e.target.value)} type="text" placeholder="Enter CNIC Number" />
-            <button onClick={() => { navigate("/voting-app/vote"); dispatch(current_nic(nic)) }} className="btn btn-outline-warning btn_goto"  >Cast my vote</button>
-        
+            <input className="form-control" onChange={(e) => setnic(e.target.value)} type="text" placeholder="Enter CNIC Number without hyphen" />
+            <button onClick={() => { checking(); }} className="btn btn-outline-warning btn_goto"  >Cast my vote</button>
+
         </div>
     )
 }
