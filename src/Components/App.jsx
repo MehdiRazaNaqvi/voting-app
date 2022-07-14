@@ -23,6 +23,8 @@ const App = () => {
 
 
 
+
+
   const load_data = () => {
 
 
@@ -53,11 +55,48 @@ const App = () => {
 
 
 
+  const check = (v) => {
+
+    // console.log(v)
+
+
+    const headers = {
+      'Content-Type': 'application/json;charset=UTF-8',
+      "Access-Control-Allow-Origin": "*",
+      'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': '*'
+    }
+
+
+
+    fetch("https://voting---server.herokuapp.com/check", {
+    // fetch("http://localhost:4000/check", {
+
+      method: "get",
+      headers: headers
+    })
+
+      .then(r => r.json())
+      .then(data => {
+
+        // console.log(data)
+        data.indexOf(v.nic) >= 0? alert("Vote has already been casted against this cnic") : voted(v)
+
+      }
+
+      )
+
+
+  }
+
+
+
+
+
 
   const voted = (v) => {
 
     console.log(v)
-    //  v.nic == "" ? console.log("error") : console.log("okay")
 
 
 
@@ -124,7 +163,7 @@ const App = () => {
 
               <span className='inner_item two'> {v.name} </span>
               <span className='inner_item three'> {v.count.length} </span>
-              <span className='inner_item four btn btn-outline-success' onClick={() => { voted({ party: v.name, nic: count.current_user }); load_data() }} > vote </span>
+              <span className='inner_item four btn btn-outline-success' onClick={() => { check({ party: v.name, nic: count.current_user }); load_data() }} > vote </span>
 
             </span>
 
@@ -142,7 +181,7 @@ const App = () => {
     </div>
   )
 
-}
+  }
 
 
 export default App

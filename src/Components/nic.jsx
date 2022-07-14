@@ -18,11 +18,11 @@ const App = () => {
 
     const checking = () => {
 
-        if (nic == "" || nic == undefined || nic.length < 13) {
+        if (nic == "" || nic == undefined || nic.length < 13 || nic.length > 13 ) {
             alert("Invalid cnic number")
         }
         else {
-            
+
             dispatch(current_nic(nic))
             navigate("/voting-app/vote")
         }
@@ -32,7 +32,7 @@ const App = () => {
     return (
         <div className="backscreen">
 
-            <input className="form-control" onChange={(e) => setnic(e.target.value)} type="text" placeholder="Enter CNIC Number without hyphen" />
+            <input maxLength={13} className="form-control" onChange={(e) => setnic(e.target.value)} type="text" placeholder="Enter CNIC Number without hyphen" />
             <button onClick={() => { checking(); }} className="btn btn-outline-warning btn_goto"  >Cast my vote</button>
 
         </div>
