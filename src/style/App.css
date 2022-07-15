@@ -154,7 +154,7 @@ p {
 
 
 .round {
-    background-color: pink;
+/*     background-color: pink; */
     width: 10%;
     height: 15%;
     border-radius: 50%;
