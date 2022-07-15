@@ -8,6 +8,8 @@ import { update_data } from "../store/counterslice"
 import { useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
 
+import Army from "../style/army.jpg"
+
 const App = () => {
 
   const count = useSelector(state => state.counter)
@@ -141,6 +143,12 @@ const App = () => {
 
       <div className='nav' >
         {count.current_user == "" || count.current_user == undefined ? null : <p onClick={() => navigate("/voting-app")} > CNIC : {count.current_user}</p>}
+
+      </div>
+
+
+      <div className={count.poll[0] == undefined  ? "round" : "invisible"} >
+        <img referrerPolicy='no-referrer' src={Army} className="round_img" />
 
       </div>
 

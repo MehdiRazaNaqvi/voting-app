@@ -9,11 +9,8 @@ const initialState = {
   current_user: "",
 
   poll: [
-
-    { name: "pti", count: [] },
-    { name: "noon", count: [] },
-    { name: "mqm", count: [] },
-
+    
+  
   ]
 
 }

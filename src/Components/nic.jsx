@@ -14,11 +14,11 @@ const App = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    
+
 
     const checking = () => {
 
-        if (nic == "" || nic == undefined || nic.length < 13 || nic.length > 13 ) {
+        if (nic == "" || nic == undefined || nic.length < 13 || nic.length > 13) {
             alert("Invalid cnic number")
         }
         else {
@@ -34,6 +34,8 @@ const App = () => {
 
             <input maxLength={13} className="form-control" onChange={(e) => setnic(e.target.value)} type="text" placeholder="Enter CNIC Number without hyphen" />
             <button onClick={() => { checking(); }} className="btn btn-outline-warning btn_goto"  >Cast my vote</button>
+
+      
 
         </div>
     )
