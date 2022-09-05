@@ -154,7 +154,7 @@ p {
 
 
 .round {
-    background-color: pink;
+    /* background-color: pink; */
     width: 10%;
     height: 15%;
     border-radius: 50%;
@@ -236,7 +236,7 @@ p {
 
 @media screen and (max-width: 400px) {
 .round{
-    width: 15%;
+    width: 13%;
     height: 10%;
 }
 }

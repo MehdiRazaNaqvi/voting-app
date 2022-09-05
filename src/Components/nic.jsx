@@ -35,7 +35,9 @@ const App = () => {
             <input maxLength={13} className="form-control" onChange={(e) => setnic(e.target.value)} type="text" placeholder="Enter CNIC Number without hyphen" />
             <button onClick={() => { checking(); }} className="btn btn-outline-warning btn_goto"  >Cast my vote</button>
 
+
       
+
 
         </div>
     )
